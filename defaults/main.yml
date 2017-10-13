@@ -87,6 +87,17 @@ filebeat_logging_paths:
       negate: 'true'
       match: after
   - paths:
+    - '/var/log/designate/*.log'
+    document_type: openstack
+    tags:
+    - openstack
+    - oslofmt
+    - designate
+    multiline:
+      pattern: "{{ multiline_openstack_pattern }}"
+      negate: 'true'
+      match: after
+  - paths:
     - '/var/log/glance/*.log'
     document_type: openstack
     tags:
